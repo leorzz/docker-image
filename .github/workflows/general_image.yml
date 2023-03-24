@@ -31,5 +31,5 @@ jobs:
           context: .
           # file: ./Dockerfile
           push: True
-          tags: gspread-omie
+          tags: leorzz/docker-image:gspread-omie
           labels: ${{ steps.meta.outputs.labels }}
