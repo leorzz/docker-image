@@ -26,10 +26,12 @@ jobs:
       #     images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
       - name: Build and push
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v4
         with:
           context: .
           # file: ./Dockerfile
           push: True
           tags: leorzz/docker-image:gspread-omie
           labels: ${{ steps.meta.outputs.labels }}
+          secrets: |
+            "github_token=${{ secrets.GITHUB_TOKEN }}"          
