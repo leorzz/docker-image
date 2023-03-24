@@ -31,7 +31,6 @@ jobs:
           context: .
           # file: ./Dockerfile
           push: True
-          platforms: linux/amd64,linux/arm64
           tags: leorzz/docker-image:gspread-omie
           labels: ${{ steps.meta.outputs.labels }}
           secrets: |
