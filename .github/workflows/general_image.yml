@@ -11,12 +11,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3    
 
-      # - name: Login to GitHub Container Registry
-      #   uses: docker/login-action@v1
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Extract metadata (tags, labels) for Docker
       #   id: meta
@@ -31,7 +31,5 @@ jobs:
           context: .
           # file: ./Dockerfile
           push: True
-          tags: leorzz/docker-image:gspread-omie
+          tags: ghcr.io/leorzz/docker-image:gspread-omie
           labels: ${{ steps.meta.outputs.labels }}
-          secrets: |
-            "github_token=${{ secrets.GITHUB_TOKEN }}"          
